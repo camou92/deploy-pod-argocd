@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camoutech-deployment
+  labels:
+    app: imc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: imc
+  template:
+    metadata:
+      labels:
+        app: imc
+    spec:
+      containers:
+        - name: imc
+          image: camoudock/front-imc:latest
+          ports:
+            - containerPort: 80
